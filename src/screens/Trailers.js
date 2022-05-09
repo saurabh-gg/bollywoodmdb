@@ -21,16 +21,11 @@ const Trailers = ({navigation}) => {
           fontWeight:'600',
           marginVertical:10,
       }}>Latest Movie Trailers 2022</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-          }}>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-            <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'vw2FOYjCz38'})}>
-            <ImageBackground
-              source={require('../assets/bondposter3.jpg')}
+
+        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'pWdKf3MneyI'})}>
+          <ImageBackground
+              source={require('../assets/antman.jpg')}
               style={{
                 height: 100,
                 width: 180,
@@ -56,89 +51,12 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            </TouchableOpacity>
             <Text style={{color: colors.text, fontWeight: '600'}}>
-              No Time To Die | 007 
+              Trailer Name
             </Text>
-          </View>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-          <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'WWfw3wdnaGM'})}>
-            <ImageBackground
-              source={require('../assets/legend.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            </TouchableOpacity>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-             South Movie Legend
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-          }}>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-            <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'Ruyl8_PT_y8'})}>
-            <ImageBackground
-              source={require('../assets/moviePoster.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            </TouchableOpacity>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Peaky Blinders
-            </Text>
-          </View>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-          <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
-            <ImageBackground
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
+          <ImageBackground
               source={require('../assets/irishman.jpg')}
               style={{
                 height: 100,
@@ -165,22 +83,15 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            </TouchableOpacity>
             <Text style={{color: colors.text, fontWeight: '600'}}>
-              Irishman Trailer
+              Trailer Name
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-          }}>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-            <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'vw2FOYjCz38'})}>
-            <ImageBackground
-              source={require('../assets/bondposter3.jpg')}
+        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Y9dr2zw-TXQ'})}>
+          <ImageBackground
+              source={require('../assets/dumble.jpg')}
               style={{
                 height: 100,
                 width: 180,
@@ -206,55 +117,12 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            </TouchableOpacity>
             <Text style={{color: colors.text, fontWeight: '600'}}>
-              No Time To Die | 007 
+              Trailer Name
             </Text>
-          </View>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-          <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'WWfw3wdnaGM'})}>
-            <ImageBackground
-              source={require('../assets/legend.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            </TouchableOpacity>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-             South Movie Legend
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-          }}>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-            <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'Ruyl8_PT_y8'})}>
-            <ImageBackground
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Ruyl8_PT_y8'})}>
+          <ImageBackground
               source={require('../assets/moviePoster.jpg')}
               style={{
                 height: 100,
@@ -281,14 +149,46 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            </TouchableOpacity>
             <Text style={{color: colors.text, fontWeight: '600'}}>
-              Peaky Blinders
+              Trailer Name
             </Text>
-          </View>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-          <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
-            <ImageBackground
+          </TouchableOpacity>
+        </View>
+        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'pWdKf3MneyI'})}>
+          <ImageBackground
+              source={require('../assets/antman.jpg')}
+              style={{
+                height: 100,
+                width: 180,
+                overflow: 'hidden',
+                borderRadius: 8,
+              }}>
+              <View
+                style={{
+                  backgroundColor: 'black',
+                  opacity: 0.5,
+                  height: '100%',
+                  width: '100%',
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text
+                  style={{height: 30}}>
+                  <Image
+                    source={require('../assets/banner-Subtract.png')}
+                    style={{height: 25, width: 25}}
+                  />
+                </Text>
+              </View>
+            </ImageBackground>
+            <Text style={{color: colors.text, fontWeight: '600'}}>
+              Trailer Name
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
+          <ImageBackground
               source={require('../assets/irishman.jpg')}
               style={{
                 height: 100,
@@ -315,23 +215,15 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            </TouchableOpacity>
             <Text style={{color: colors.text, fontWeight: '600'}}>
-              Irishman Trailer
+              Trailer Name
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-            marginBottom:60
-          }}>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-            <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'vw2FOYjCz38'})}>
-            <ImageBackground
-              source={require('../assets/bondposter3.jpg')}
+        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Y9dr2zw-TXQ'})}>
+          <ImageBackground
+              source={require('../assets/dumble.jpg')}
               style={{
                 height: 100,
                 width: 180,
@@ -357,15 +249,13 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            </TouchableOpacity>
             <Text style={{color: colors.text, fontWeight: '600'}}>
-              No Time To Die | 007 
+              Trailer Name
             </Text>
-          </View>
-          <View style={{marginHorizontal: 5, margin: 10}}>
-          <TouchableOpacity onPress={navigation.navigate('VideoPlayer', {videoId:'WWfw3wdnaGM'})}>
-            <ImageBackground
-              source={require('../assets/legend.jpg')}
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Ruyl8_PT_y8'})}>
+          <ImageBackground
+              source={require('../assets/moviePoster.jpg')}
               style={{
                 height: 100,
                 width: 180,
@@ -391,12 +281,78 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            </TouchableOpacity>
             <Text style={{color: colors.text, fontWeight: '600'}}>
-             South Movie Legend
+              Trailer Name
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
+        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5, marginBottom:60}}>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'pWdKf3MneyI'})}>
+          <ImageBackground
+              source={require('../assets/antman.jpg')}
+              style={{
+                height: 100,
+                width: 180,
+                overflow: 'hidden',
+                borderRadius: 8,
+              }}>
+              <View
+                style={{
+                  backgroundColor: 'black',
+                  opacity: 0.5,
+                  height: '100%',
+                  width: '100%',
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text
+                  style={{height: 30}}>
+                  <Image
+                    source={require('../assets/banner-Subtract.png')}
+                    style={{height: 25, width: 25}}
+                  />
+                </Text>
+              </View>
+            </ImageBackground>
+            <Text style={{color: colors.text, fontWeight: '600'}}>
+              Trailer Name
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
+          <ImageBackground
+              source={require('../assets/irishman.jpg')}
+              style={{
+                height: 100,
+                width: 180,
+                overflow: 'hidden',
+                borderRadius: 8,
+              }}>
+              <View
+                style={{
+                  backgroundColor: 'black',
+                  opacity: 0.5,
+                  height: '100%',
+                  width: '100%',
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text
+                  style={{height: 30}}>
+                  <Image
+                    source={require('../assets/banner-Subtract.png')}
+                    style={{height: 25, width: 25}}
+                  />
+                </Text>
+              </View>
+            </ImageBackground>
+            <Text style={{color: colors.text, fontWeight: '600'}}>
+              Trailer Name
+            </Text>
+          </TouchableOpacity>
+        </View>
+      
       </ScrollView>
     </View>
   );

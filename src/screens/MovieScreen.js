@@ -140,7 +140,7 @@ const MoviePosters = ({navigation}) => {
         }}>
         <TouchableOpacity
           style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail', videoId='WHXxVmeGQUc', poster='irishman.jpg') }>
+          onPress={() => navigation.navigate('MovieDetail', {videoId:'WHXxVmeGQUc', poster: require('../assets/irishman.jpg')}) }>
           <View style={{height: 250, width: 160, elevation: 10}}>
             <Image
               source={require('../assets/irishman.jpg')}
@@ -152,7 +152,7 @@ const MoviePosters = ({navigation}) => {
 
         <TouchableOpacity
           style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
+          onPress={() => navigation.navigate('MovieDetail' , {videoId:'Y9dr2zw-TXQ', poster:require('../assets/dumble.jpg')})}>
           <View style={{height: 250, width: 160, elevation: 10}}>
             <Image
               source={require('../assets/dumble.jpg')}
@@ -172,7 +172,7 @@ const MoviePosters = ({navigation}) => {
         }}>
         <TouchableOpacity
           style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
+          onPress={() => navigation.navigate('MovieDetail' , {videoId:'Ruyl8_PT_y8', poster:require('../assets/moviePoster.jpg')})}>
           <View style={{height: 250, width: 160, elevation: 10}}>
             <Image
               source={require('../assets/moviePoster.jpg')}
@@ -183,7 +183,7 @@ const MoviePosters = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
+          onPress={() => navigation.navigate('MovieDetail' , {videoId:'pWdKf3MneyI', poster:require('../assets/antman.jpg')})}>
           <View style={{height: 250, width: 160, elevation: 10}}>
             <Image
               source={require('../assets/antman.jpg')}
@@ -220,68 +220,7 @@ const RecentRelease = ({navigation}) => {
   return (
     <View style={{margin: 2}}>
       <Text style={{color: colors.text, fontSize:16, textTransform:'uppercase', marginHorizontal:20, marginVertical:10}}>Recent Release</Text>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-        }}>
-        <TouchableOpacity
-          style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
-          <View style={{height: 250, width: 160, elevation: 10}}>
-            <Image
-              source={require('../assets/irishman.jpg')}
-              resizeMode="cover"
-              style={{height: '100%', width: '100%', borderRadius: 8}}></Image>
-          </View>
-          <Text style={{textAlign: 'center'}}>Movie Name</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
-          <View style={{height: 250, width: 160, elevation: 10}}>
-            <Image
-              source={require('../assets/moviePoster.jpg')}
-              resizeMode="cover"
-              style={{height: '100%', width: '100%', borderRadius: 8}}></Image>
-          </View>
-          <Text style={{textAlign: 'center'}}>Movie Name</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-        }}>
-        <TouchableOpacity
-          style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
-          <View style={{height: 250, width: 160, elevation: 10}}>
-            <Image
-              source={require('../assets/moviePoster.jpg')}
-              resizeMode="cover"
-              style={{height: '100%', width: '100%', borderRadius: 8}}></Image>
-          </View>
-          <Text style={{textAlign: 'center'}}>Movie Name</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
-          <View style={{height: 250, width: 160, elevation: 10}}>
-            <Image
-              source={require('../assets/irishman.jpg')}
-              resizeMode="cover"
-              style={{height: '100%', width: '100%', borderRadius: 8}}></Image>
-          </View>
-          <Text style={{textAlign: 'center'}}>Movie Name</Text>
-        </TouchableOpacity>
-      </View>
+      <MoviePosters navigation={navigation}></MoviePosters>
     </View>
   );
 };

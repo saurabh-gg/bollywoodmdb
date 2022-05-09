@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, {useState, useCallback, useRef} from 'react';
 import {
   View,
   Text,
@@ -10,12 +10,12 @@ import {
   Alert,
   ImageBackground,
   TouchableOpacity,
-  Button
+  Button,
 } from 'react-native';
-import { useTheme } from '@react-navigation/native';
+import {useTheme} from '@react-navigation/native';
 import CustomHeader from '../header/CustomHeader';
 import Video from 'react-native-video';
-import YoutubePlayer from "react-native-youtube-iframe";
+import YoutubePlayer from 'react-native-youtube-iframe';
 
 const CastAndCrewList = ({navigation}) => {
   return (
@@ -27,7 +27,7 @@ const CastAndCrewList = ({navigation}) => {
           alignItems: 'center',
           justifyContent: 'space-between',
           marginHorizontal: 10,
-          marginTop:15,
+          marginTop: 15,
         }}>
         <Text style={{textTransform: 'uppercase', fontWeight: '900'}}>
           Cast and crew
@@ -36,35 +36,59 @@ const CastAndCrewList = ({navigation}) => {
       </View>
       <ScrollView horizontal={true}>
         <View style={{marginHorizontal: 5, margin: 10}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('StarCastDetails')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('StarCastDetails')}>
             <Image
               source={require('../assets/reynolds.jpg')}
               imageStyle={{borderRadius: 6}}
-              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
+              style={{
+                height: 120,
+                width: 100,
+                resizeMode: 'cover',
+                borderRadius: 3,
+              }}></Image>
             <Text>celebrity name</Text>
           </TouchableOpacity>
         </View>
         <View style={{marginHorizontal: 6, margin: 10}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('StarCastDetails')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('StarCastDetails')}>
             <Image
               source={require('../assets/celeb.jpg')}
-              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
+              style={{
+                height: 120,
+                width: 100,
+                resizeMode: 'cover',
+                borderRadius: 3,
+              }}></Image>
             <Text>Celebrity name</Text>
           </TouchableOpacity>
         </View>
         <View style={{marginHorizontal: 6, margin: 10}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('StarCastDetails')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('StarCastDetails')}>
             <Image
               source={require('../assets/cilian.jpg')}
-              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
+              style={{
+                height: 120,
+                width: 100,
+                resizeMode: 'cover',
+                borderRadius: 3,
+              }}></Image>
             <Text>Celebrity name</Text>
           </TouchableOpacity>
         </View>
         <View style={{marginHorizontal: 6, margin: 10}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('StarCastDetails')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('StarCastDetails')}>
             <Image
               source={require('../assets/dicaprio.jpg')}
-              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
+              style={{
+                height: 120,
+                width: 100,
+                resizeMode: 'cover',
+                borderRadius: 3,
+              }}></Image>
             <Text>Celebrity name</Text>
           </TouchableOpacity>
         </View>
@@ -100,7 +124,7 @@ const DATA = [
   },
 ];
 
-const DataItem = ({description , uri}) => (
+const DataItem = ({description, uri}) => (
   <View style={styles.ReviewContainer}>
     <View style={styles.imgContainer}>
       <Image
@@ -131,7 +155,7 @@ const RelatedTopics = () => {
   );
 
   return (
-    <SafeAreaView style={{marginTop:20}}>
+    <SafeAreaView style={{marginTop: 20}}>
       <Text style={styles.headerText}>Related Topics</Text>
       <FlatList
         data={DATA}
@@ -142,9 +166,9 @@ const RelatedTopics = () => {
 };
 
 const Trailer = ({navigation}) => {
-  const { colors } = useTheme();
+  const {colors} = useTheme();
   return (
-    <View style={{marginTop:15}}>
+    <View style={{marginTop: 15}}>
       <View
         style={{
           flex: 1,
@@ -153,8 +177,10 @@ const Trailer = ({navigation}) => {
           justifyContent: 'space-between',
           marginHorizontal: 8,
         }}>
-        <Text style={{color: colors.text, fontWeight: '700'}}>Latest Trailer</Text>
-        <Text onPress={()=> navigation.navigate('Trailers')}>See all</Text>
+        <Text style={{color: colors.text, fontWeight: '700'}}>
+          Latest Trailer
+        </Text>
+        <Text onPress={() => navigation.navigate('Trailers')}>See all</Text>
       </View>
 
       <ScrollView horizontal={true}>
@@ -297,60 +323,59 @@ const Trailer = ({navigation}) => {
 
 const Posters = ({navigation}) => {
   return (
-      <View style={{marginTop:15 ,}}>
-        <View
-          style={{
-            marginHorizontal: 10,
-            marginVertical: 10,
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}>
-          <Text>Posters</Text>
-          <Text onPress={() => navigation.navigate('Posters')}>see all</Text>
+    <View style={{marginTop: 15}}>
+      <View
+        style={{
+          marginHorizontal: 10,
+          marginVertical: 10,
+          flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <Text>Posters</Text>
+        <Text onPress={() => navigation.navigate('Posters')}>see all</Text>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          marginHorizontal: 10,
+          justifyContent: 'space-evenly',
+        }}>
+        <View style={{height: 250, width: 180}}>
+          <Image
+            source={require('../assets/moviePoster.jpg')}
+            style={styles.poster}></Image>
         </View>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            marginHorizontal: 10,
-            justifyContent: 'space-evenly',
-          }}>
-          <View style={{height: 250, width: 180}}>
-            <Image
-              source={require('../assets/moviePoster.jpg')}
-              style={styles.poster}></Image>
-          </View>
-          {/* delete here */}
-          <View style={{height: 250, width: 180}}>
-            <Image
-              source={require('../assets/antman.jpg')}
-              style={styles.poster}></Image>
-          </View>
-        </View>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            marginHorizontal: 10,
-            marginVertical: 10,
-            justifyContent: 'space-evenly',
-          }}>
-          <View style={{height: 250, width: 180}}>
-            <Image
-              source={require('../assets/irishman.jpg')}
-              style={styles.poster}></Image>
-          </View>
-          {/* delete here */}
-          <View style={{height: 250, width: 180}}>
-            <Image
-              source={require('../assets/dumble.jpg')}
-              style={styles.poster}></Image>
-          </View>
+        {/* delete here */}
+        <View style={{height: 250, width: 180}}>
+          <Image
+            source={require('../assets/antman.jpg')}
+            style={styles.poster}></Image>
         </View>
       </View>
-    
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          marginHorizontal: 10,
+          marginVertical: 10,
+          justifyContent: 'space-evenly',
+        }}>
+        <View style={{height: 250, width: 180}}>
+          <Image
+            source={require('../assets/irishman.jpg')}
+            style={styles.poster}></Image>
+        </View>
+        {/* delete here */}
+        <View style={{height: 250, width: 180}}>
+          <Image
+            source={require('../assets/dumble.jpg')}
+            style={styles.poster}></Image>
+        </View>
+      </View>
+    </View>
   );
 };
 
@@ -364,10 +389,12 @@ const Stills = ({navigation}) => {
           alignItems: 'center',
           justifyContent: 'space-between',
           marginHorizontal: 10,
-          marginTop:15
+          marginTop: 15,
         }}>
         <Text>Images/stills</Text>
-        <Text onPress={()=> navigation.navigate('ImageAndStills')}>see all </Text>
+        <Text onPress={() => navigation.navigate('ImageAndStills')}>
+          see all{' '}
+        </Text>
       </View>
       <ScrollView horizontal={true}>
         <View style={{margin: 6}}>
@@ -397,7 +424,7 @@ const Stills = ({navigation}) => {
 
 const PlotReviewSection = () => {
   return (
-    <View style={{marginTop:15}}>
+    <View style={{marginTop: 15}}>
       <View style={styles.textSepartor}>
         <Text style={styles.reviewHeader}>Plot and Review</Text>
         <Text>
@@ -445,7 +472,7 @@ const News = () => {
   );
 
   return (
-    <SafeAreaView style={{marginTop:20}}>
+    <SafeAreaView style={{marginTop: 20}}>
       <View
         style={{
           flex: 1,
@@ -472,7 +499,7 @@ const PartiesAndEvents = ({navigation}) => {
   );
 
   return (
-    <SafeAreaView style={{marginTop:20}}>
+    <SafeAreaView style={{marginTop: 20}}>
       <View
         style={{
           flex: 1,
@@ -482,7 +509,7 @@ const PartiesAndEvents = ({navigation}) => {
           marginHorizontal: 10,
         }}>
         <Text style={styles.headerText}>Parties and Events</Text>
-        <Text onPress={()=> navigation.navigate('Events')}>see all</Text>
+        <Text onPress={() => navigation.navigate('Events')}>see all</Text>
       </View>
 
       <FlatList
@@ -494,19 +521,19 @@ const PartiesAndEvents = ({navigation}) => {
 };
 
 function MovieScreenDetail({navigation, route}) {
-  const { colors } = useTheme();
-  const {videoId, poster} = route.params
+  const {colors} = useTheme();
+  const {videoId, poster} = route.params;
   const [playing, setPlaying] = useState(false);
 
-  const onStateChange = useCallback((state) => {
-    if (state === "ended") {
+  const onStateChange = useCallback(state => {
+    if (state === 'ended') {
       setPlaying(false);
-      Alert.alert("video has finished playing!");
+      Alert.alert('video has finished playing!');
     }
   }, []);
 
   const togglePlaying = useCallback(() => {
-    setPlaying((prev) => !prev);
+    setPlaying(prev => !prev);
   }, []);
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -514,32 +541,23 @@ function MovieScreenDetail({navigation, route}) {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.header}>
-            {/* <Image
-              style={{width: '100%', height: '100%', resizeMode: 'cover'}}
-              source={require('../assets/dumble.jpg')}
-            /> */}
-            {/* <Video source={{uri: 'https://www.youtube.com/watch?v=Y9dr2zw-TXQ'}} 
-            style={{width:'100%', height:'100%'}}
-            controls={true}
-            /> */}
-
             <YoutubePlayer
-                    height={'100%'}
-                    play={playing}
-                    videoId={'Y9dr2zw-TXQ'}
-                    onChangeState={onStateChange}
-                  />
-                  {/* <Button title={playing ? "pause" : "play"} onPress={togglePlaying} /> */}
-
+              height='100%'
+              play={playing}
+              videoId={videoId}
+              onChangeState={onStateChange}
+            />
           </View>
           <View style={styles.rectangle}>
             <Image
               style={{width: '100%', height: '100%', borderRadius: 6}}
-              source={require('../assets/dumble.jpg')}></Image>
+              source={poster}></Image>
           </View>
           <View style={styles.circle}>
-            <Image source={require('../assets/heart.png')}
-            style={{ tintColor:'white' ,width:16, height:16}} />
+            <Image
+              source={require('../assets/heart.png')}
+              style={{tintColor: 'white', width: 16, height: 16}}
+            />
           </View>
           <View style={{marginLeft: 150, marginRight: 5, width: 200}}>
             <Text style={{textAlign: 'center'}}>Movie| Adventure | Comedy</Text>
@@ -552,49 +570,62 @@ function MovieScreenDetail({navigation, route}) {
                 marginTop: 2,
               }}>
               <View style={{margin: 4}}>
-                <Image source={require('../assets/star.png')} 
-                style={{tintColor:'gold'  ,width:20, height:20}}/>
+                <Image
+                  source={require('../assets/star.png')}
+                  style={{tintColor: 'gold', width: 20, height: 20}}
+                />
                 <Text style={{fontSize: 12}}>Critic's Rating</Text>
                 <Text style={{fontSize: 12}}>4.2 / 5</Text>
               </View>
               <View style={{margin: 4}}>
-              <Image source={require('../assets/star.png')} 
-                style={{tintColor:'gold' ,width:20, height:20}} />
+                <Image
+                  source={require('../assets/star.png')}
+                  style={{tintColor: 'gold', width: 20, height: 20}}
+                />
                 <Text style={{fontSize: 12}}>Critic's Rating</Text>
                 <Text style={{fontSize: 12}}>4.4 / 5</Text>
               </View>
-              <TouchableOpacity style={{margin: 4}} onPress={()=> navigation.navigate('WriteReview')}>
-                <Image source={require('../assets/notes.png')}
-                style={{tintColor:'red' ,width:20, height:20}}
+              <TouchableOpacity
+                style={{margin: 4}}
+                onPress={() => navigation.navigate('WriteReview')}>
+                <Image
+                  source={require('../assets/notes.png')}
+                  style={{tintColor: 'red', width: 20, height: 20}}
                 />
                 <Text style={{fontSize: 12, color: '#CC2939'}}>Rate This</Text>
               </TouchableOpacity>
             </View>
-            <View style={{marginVertical:20}}>
-              <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</Text>
+            <View style={{marginVertical: 20}}>
+              <Text>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry
+              </Text>
             </View>
           </View>
         </View>
-        
-      <View>
-      <View style={{marginTop: 20, marginHorizontal: 12}}>
-        <Text style={{marginBottom: 8}} onPress={()=>navigation.navigate('ProductionDetails')}>Banner : SomeBanner</Text>
-      </View>
-      <CastAndCrewList navigation={navigation}/>
-      </View>
-      <RelatedTopics/>
-      <Trailer navigation ={navigation}/>
-      <Posters navigation={navigation}/>
-      <Stills navigation={navigation}/>
-      <PlotReviewSection/>
-      <View>
-        <News/>
-      </View>
-      <View>
-        <PartiesAndEvents navigation={navigation}/>
-      </View>
-      </ScrollView>
 
+        <View>
+          <View style={{marginTop: 20, marginHorizontal: 12}}>
+            <Text
+              style={{marginBottom: 8}}
+              onPress={() => navigation.navigate('ProductionDetails')}>
+              Banner : SomeBanner
+            </Text>
+          </View>
+          <CastAndCrewList navigation={navigation} />
+        </View>
+        <RelatedTopics />
+        <Trailer navigation={navigation} />
+        <Posters navigation={navigation} />
+        <Stills navigation={navigation} />
+        <PlotReviewSection />
+        <View>
+          <News />
+        </View>
+        <View>
+          <PartiesAndEvents navigation={navigation} />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -625,7 +656,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 32,
-    width: 32 ,
+    width: 32,
     position: 'absolute',
     top: 220,
     right: 10,
@@ -672,11 +703,12 @@ const styles = StyleSheet.create({
 
 export default MovieScreenDetail;
 
-
-{/* <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+{
+  /* <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity style={{marginTop: 20}}
         onPress={() => navigation.navigate('Posters')}
         >
           <Text>MovieDetails</Text>
         </TouchableOpacity>
-      </View> */}
+      </View> */
+}
