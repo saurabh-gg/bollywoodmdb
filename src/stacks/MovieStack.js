@@ -19,6 +19,7 @@ import WriteReview from '../screens/WriteReviewScreeen';
 import EventDetail from '../screens/EventDetails';
 import ProductionDetails from '../screens/ProductionDetails';
 import ImageAndStills from '../screens/ImageStills';
+import Trailers from '../screens/Trailers';
 const StackMovie = createStackNavigator();
 
 const navOptionHandler = () => ({

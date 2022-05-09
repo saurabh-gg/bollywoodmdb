@@ -140,7 +140,7 @@ const MoviePosters = ({navigation}) => {
         }}>
         <TouchableOpacity
           style={{margin: 2}}
-          onPress={() => navigation.navigate('MovieDetail')}>
+          onPress={() => navigation.navigate('MovieDetail', videoId='WHXxVmeGQUc', poster='irishman.jpg') }>
           <View style={{height: 250, width: 160, elevation: 10}}>
             <Image
               source={require('../assets/irishman.jpg')}

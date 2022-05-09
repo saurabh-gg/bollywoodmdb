@@ -252,7 +252,7 @@ const more = [
   {id: 1, name: 'AboutUs', Route: 'More'},
 ];
 const videos = [
-  {id: 1, name: 'Trailers', Route: 'Trailers'},
+  {id: 1, name: 'Trailers', Route: 'TrailerStack'},
   {id: 2, name: 'Songs', Route: 'Songs'},
 ];
 const movies = [

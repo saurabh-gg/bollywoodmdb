@@ -6,7 +6,7 @@ import HomeScreenDetail from '../screens/HomeScreenDetail';
 import LoginScreen from '../screens/LoginScreen';
 import BoxOfficeStack from './BoxOfficeStack';
 import AboutUs from '../screens/AboutUs';
-import Trailers from '../screens/Trailers';
+import TrailerStack from './TrailerStack';
 import Songs from '../screens/Songs';
 import CelebListings from '../screens/CelebListingPage';
 import WatchList from '../screens/WatchList';
@@ -48,8 +48,8 @@ function HomeStack() {
         options={navOptionHandler}
       />
       <StackHome.Screen
-        name="Trailers"
-        component={Trailers}
+        name="TrailerStack"
+        component={TrailerStack}
         options={navOptionHandler}
       />
       <StackHome.Screen

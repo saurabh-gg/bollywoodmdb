@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useCallback, useRef } from "react";
 import {
   View,
   Text,
@@ -9,12 +9,13 @@ import {
   SafeAreaView,
   Alert,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  Button
 } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import CustomHeader from '../header/CustomHeader';
-
-
+import Video from 'react-native-video';
+import YoutubePlayer from "react-native-youtube-iframe";
 
 const CastAndCrewList = ({navigation}) => {
   return (
@@ -39,7 +40,7 @@ const CastAndCrewList = ({navigation}) => {
             <Image
               source={require('../assets/reynolds.jpg')}
               imageStyle={{borderRadius: 6}}
-              style={{height: 100, width: 100, resizeMode: 'cover'}}></Image>
+              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
             <Text>celebrity name</Text>
           </TouchableOpacity>
         </View>
@@ -47,7 +48,7 @@ const CastAndCrewList = ({navigation}) => {
           <TouchableOpacity onPress={()=> navigation.navigate('StarCastDetails')}>
             <Image
               source={require('../assets/celeb.jpg')}
-              style={{height: 100, width: 100, resizeMode: 'cover'}}></Image>
+              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
             <Text>Celebrity name</Text>
           </TouchableOpacity>
         </View>
@@ -55,7 +56,7 @@ const CastAndCrewList = ({navigation}) => {
           <TouchableOpacity onPress={()=> navigation.navigate('StarCastDetails')}>
             <Image
               source={require('../assets/cilian.jpg')}
-              style={{height: 100, width: 100, resizeMode: 'cover'}}></Image>
+              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
             <Text>Celebrity name</Text>
           </TouchableOpacity>
         </View>
@@ -63,7 +64,7 @@ const CastAndCrewList = ({navigation}) => {
           <TouchableOpacity onPress={()=> navigation.navigate('StarCastDetails')}>
             <Image
               source={require('../assets/dicaprio.jpg')}
-              style={{height: 100, width: 100, resizeMode: 'cover'}}></Image>
+              style={{height: 115, width: 100, resizeMode: 'cover', borderRadius:3}}></Image>
             <Text>Celebrity name</Text>
           </TouchableOpacity>
         </View>
@@ -140,7 +141,7 @@ const RelatedTopics = () => {
   );
 };
 
-const Trailer = () => {
+const Trailer = ({navigation}) => {
   const { colors } = useTheme();
   return (
     <View style={{marginTop:15}}>
@@ -153,7 +154,7 @@ const Trailer = () => {
           marginHorizontal: 8,
         }}>
         <Text style={{color: colors.text, fontWeight: '700'}}>Latest Trailer</Text>
-        <Text>See all</Text>
+        <Text onPress={()=> navigation.navigate('Trailers')}>See all</Text>
       </View>
 
       <ScrollView horizontal={true}>
@@ -492,18 +493,44 @@ const PartiesAndEvents = ({navigation}) => {
   );
 };
 
-function MovieScreenDetail({navigation}) {
+function MovieScreenDetail({navigation, route}) {
   const { colors } = useTheme();
+  const {videoId, poster} = route.params
+  const [playing, setPlaying] = useState(false);
+
+  const onStateChange = useCallback((state) => {
+    if (state === "ended") {
+      setPlaying(false);
+      Alert.alert("video has finished playing!");
+    }
+  }, []);
+
+  const togglePlaying = useCallback(() => {
+    setPlaying((prev) => !prev);
+  }, []);
   return (
     <SafeAreaView style={{flex: 1}}>
       <CustomHeader title="Movie Detail" navigation={navigation} />
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Image
+            {/* <Image
               style={{width: '100%', height: '100%', resizeMode: 'cover'}}
               source={require('../assets/dumble.jpg')}
-            />
+            /> */}
+            {/* <Video source={{uri: 'https://www.youtube.com/watch?v=Y9dr2zw-TXQ'}} 
+            style={{width:'100%', height:'100%'}}
+            controls={true}
+            /> */}
+
+            <YoutubePlayer
+                    height={'100%'}
+                    play={playing}
+                    videoId={'Y9dr2zw-TXQ'}
+                    onChangeState={onStateChange}
+                  />
+                  {/* <Button title={playing ? "pause" : "play"} onPress={togglePlaying} /> */}
+
           </View>
           <View style={styles.rectangle}>
             <Image
@@ -512,7 +539,7 @@ function MovieScreenDetail({navigation}) {
           </View>
           <View style={styles.circle}>
             <Image source={require('../assets/heart.png')}
-            style={{ tintColor:'white' ,width:20, height:20}} />
+            style={{ tintColor:'white' ,width:16, height:16}} />
           </View>
           <View style={{marginLeft: 150, marginRight: 5, width: 200}}>
             <Text style={{textAlign: 'center'}}>Movie| Adventure | Comedy</Text>
@@ -543,20 +570,20 @@ function MovieScreenDetail({navigation}) {
                 <Text style={{fontSize: 12, color: '#CC2939'}}>Rate This</Text>
               </TouchableOpacity>
             </View>
+            <View style={{marginVertical:20}}>
+              <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</Text>
+            </View>
           </View>
         </View>
-        <View style={{marginTop: 30, marginHorizontal: 12}}>
-        <Text>
-          lorem ahg kagb abg abgaik avanvbavav avn abvb abv ab abv bavbh abvba
-          jang nagn ag agb abghab gangnaigb gabvbabvab hbhzbss bgbbag agab gh
-        </Text>
+        
+      <View>
+      <View style={{marginTop: 20, marginHorizontal: 12}}>
         <Text style={{marginBottom: 8}} onPress={()=>navigation.navigate('ProductionDetails')}>Banner : SomeBanner</Text>
       </View>
-      <View>
       <CastAndCrewList navigation={navigation}/>
       </View>
       <RelatedTopics/>
-      <Trailer/>
+      <Trailer navigation ={navigation}/>
       <Posters navigation={navigation}/>
       <Stills navigation={navigation}/>
       <PlotReviewSection/>
@@ -583,13 +610,13 @@ const styles = StyleSheet.create({
     position: 'relative',
     top: 0,
     left: 0,
-    backgroundColor: 'indigo',
+    backgroundColor: 'gray',
   },
   rectangle: {
     height: 180,
     width: 120,
     position: 'absolute',
-    top: 130,
+    top: 230,
     left: 10,
     elevation: 10,
   },
@@ -597,10 +624,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 40,
-    width: 40,
+    height: 32,
+    width: 32 ,
     position: 'absolute',
-    top: 200,
+    top: 220,
     right: 10,
     borderRadius: 50,
     backgroundColor: 'grey',
