@@ -7,7 +7,8 @@ import VideoPlayer from '../screens/VideoPlayer';
 const StackTrailer = createStackNavigator();
 
 const navOptionHandler = () => ({
-    headerShown: false,
+  headerShown: false,
+  animationEnabled:false
   });
 
 

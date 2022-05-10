@@ -107,16 +107,7 @@ const SomeData = [
     ],
   },
 ];
-let fruits = [
-  {
-    id: 1,
-    name: 'Mango',
-  },
-  {id: 2, name: 'Banana'},
-  {id: 3, name: 'Apple'},
-  {id: 4, name: 'Apple'},
-  {id: 5, name: 'Apple'},
-];
+
 
 const HorizontalScroll = () => {
   return (

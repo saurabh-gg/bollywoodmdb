@@ -11,7 +11,7 @@ import {
 import {createStackNavigator} from '@react-navigation/stack';
 
 import MovieScreen from '../screens/MovieScreen';
-import MovieScreenDetail from '../screens/MovieDetails';
+import MovieDetailScreen from '../screens/MovieDetails';
 import Posters from '../screens/Posters';
 import StarCastDetails from '../screens/StarCastDetails';
 import Events from '../screens/EventScreen';
@@ -24,6 +24,7 @@ const StackMovie = createStackNavigator();
 
 const navOptionHandler = () => ({
   headerShown: false,
+  animationEnabled:false
 });
 
 function MovieStack() {
@@ -36,8 +37,9 @@ function MovieStack() {
       />
       <StackMovie.Screen
         name="MovieDetail"
-        component={MovieScreenDetail}
+        component={MovieDetailScreen}
         options={navOptionHandler}
+        
       />
       <StackMovie.Screen
         name="Posters"

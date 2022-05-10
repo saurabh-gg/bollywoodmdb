@@ -116,7 +116,7 @@ const ProductionDetails = ({navigation}) => {
               data={tableHead}
               flexArr={[1, 1, 1, 1, 1]}
               style={styles.head}
-              textStyle={[{color: colors.text}, styles.text]}
+              
             />
             <TableWrapper style={styles.wrapper}>
               {/* <Col data={tableHead} style={styles.title} heightArr={[28,28]} textStyle={styles.text}/> */}
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   head: {height: 40,borderBottomWidth:2,
     borderColor:'#282828' },
   textHead: {fontWeight: '600', color: 'red'},
-  text: {margin: 2, fontSize: 10},
+  text: {margin: 2, fontSize: 11},
   wrapper: {flexDirection: 'row'},
   row: {
     flexDirection: 'row',

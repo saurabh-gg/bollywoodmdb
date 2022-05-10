@@ -1,9 +1,23 @@
 import * as React from 'react';
-import {View, Text, ImageBackground, Image, ScrollView, Alert} from 'react-native';
+import {View, Text, ImageBackground, Image, ScrollView, } from 'react-native';
 
 import {useTheme} from '@react-navigation/native';
 import CustomHeader from '../header/CustomHeader';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+const data = [
+  {id:1 , movieName:'irishman' ,img: require('../assets/irishman.jpg'), videoId: 'WHXxVmeGQUc'},
+  {id:2 , movieName:'Antman' ,img: require('../assets/antman.jpg'), videoId: 'pWdKf3MneyI'},
+  {id:3 , movieName:'Peaky Blinders' ,img: require('../assets/moviePoster.jpg'), videoId: '2nsT9uQPIrk'},
+  {id:4 , movieName:'dumbledore' ,img: require('../assets/dumble.jpg'), videoId: 'Y9dr2zw-TXQ'},
+  {id:5 , movieName:'forest' ,img: require('../assets/forest.jpg'), videoId: '6hW8hUcXR-A'},
+  {id:6 , movieName:'polis' ,img: require('../assets/polis.jpg'), videoId: 'WHXxVmeGQUc'},
+  {id:7 , movieName:'forest' ,img: require('../assets/legend.jpg'), videoId: 'WHXxVmeGQUc'},
+  {id:8 , movieName:'irishman' ,img: require('../assets/irishman.jpg'), videoId: 'WHXxVmeGQUc'},
+  {id:9 , movieName:'irishman' ,img: require('../assets/irishman.jpg'), videoId: 'WHXxVmeGQUc'},
+  {id:10 , movieName:'irishman' ,img: require('../assets/irishman.jpg'), videoId: 'WHXxVmeGQUc'},
+]
+
 
 const Trailers = ({navigation}) => {
   const {colors} = useTheme();
@@ -22,15 +36,20 @@ const Trailers = ({navigation}) => {
           marginVertical:10,
       }}>Latest Movie Trailers 2022</Text>
 
-        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'pWdKf3MneyI'})}>
-          <ImageBackground
-              source={require('../assets/antman.jpg')}
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-start', flexWrap:'wrap', marginBottom:60}}>
+      {
+        data.map(element =>{
+          return(
+            <TouchableOpacity key={element.id} style={{margin:10}}
+            onPress ={()=>navigation.navigate('VideoPlayer',{ videoId:`${element.videoId}`})}
+            >
+              <ImageBackground
+              source={element.img}
               style={{
                 height: 100,
-                width: 180,
+                width: 160,
                 overflow: 'hidden',
-                borderRadius: 8,
+                borderRadius: 5,
               }}>
               <View
                 style={{
@@ -51,308 +70,13 @@ const Trailers = ({navigation}) => {
                 </Text>
               </View>
             </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
-          <ImageBackground
-              source={require('../assets/irishman.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Y9dr2zw-TXQ'})}>
-          <ImageBackground
-              source={require('../assets/dumble.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Ruyl8_PT_y8'})}>
-          <ImageBackground
-              source={require('../assets/moviePoster.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'pWdKf3MneyI'})}>
-          <ImageBackground
-              source={require('../assets/antman.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
-          <ImageBackground
-              source={require('../assets/irishman.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Y9dr2zw-TXQ'})}>
-          <ImageBackground
-              source={require('../assets/dumble.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'Ruyl8_PT_y8'})}>
-          <ImageBackground
-              source={require('../assets/moviePoster.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{flexDirection:'row' , alignItems:'center', justifyContent:'space-evenly',marginVertical:5, marginBottom:60}}>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'pWdKf3MneyI'})}>
-          <ImageBackground
-              source={require('../assets/antman.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('VideoPlayer', {videoId:'WHXxVmeGQUc'})}>
-          <ImageBackground
-              source={require('../assets/irishman.jpg')}
-              style={{
-                height: 100,
-                width: 180,
-                overflow: 'hidden',
-                borderRadius: 8,
-              }}>
-              <View
-                style={{
-                  backgroundColor: 'black',
-                  opacity: 0.5,
-                  height: '100%',
-                  width: '100%',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{height: 30}}>
-                  <Image
-                    source={require('../assets/banner-Subtract.png')}
-                    style={{height: 25, width: 25}}
-                  />
-                </Text>
-              </View>
-            </ImageBackground>
-            <Text style={{color: colors.text, fontWeight: '600'}}>
-              Trailer Name
-            </Text>
-          </TouchableOpacity>
-        </View>
-      
+            <Text style={{textTransform:'capitalize'}}>{element.movieName}</Text>
+            </TouchableOpacity>
+          )
+        })
+      }
+      </View>
+
       </ScrollView>
     </View>
   );

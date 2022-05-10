@@ -17,81 +17,44 @@ import CustomHeader from '../header/CustomHeader';
 import Video from 'react-native-video';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
-const CastAndCrewList = ({navigation}) => {
+const cast = [
+  {id: 1, name: 'somename', img: require('../assets/celeb.jpg')},
+  {id: 2, name: 'ryan reynolds', img: require('../assets/reynolds.jpg')},
+  {id: 3, name: 'Leonardo dicaprio', img: require('../assets/dicaprio.jpg')},
+  {id: 4, name: 'tara sutaria', img: require('../assets/tara.jpg')},
+  {id: 5, name: 'cilian murphy', img: require('../assets/cilian.jpg')},
+];
+
+const CastList = ({navigation}) => {
   return (
     <>
       <View
         style={{
-          flex: 1,
           flexDirection: 'row',
-          alignItems: 'center',
           justifyContent: 'space-between',
-          marginHorizontal: 10,
-          marginTop: 15,
+          marginVertical: 10,
+          marginHorizontal:12
         }}>
-        <Text style={{textTransform: 'uppercase', fontWeight: '900'}}>
-          Cast and crew
-        </Text>
+        <Text>Cast and Crew</Text>
         <Text>see all</Text>
       </View>
-      <ScrollView horizontal={true}>
-        <View style={{marginHorizontal: 5, margin: 10}}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('StarCastDetails')}>
-            <Image
-              source={require('../assets/reynolds.jpg')}
-              imageStyle={{borderRadius: 6}}
-              style={{
-                height: 120,
-                width: 100,
-                resizeMode: 'cover',
-                borderRadius: 3,
-              }}></Image>
-            <Text>celebrity name</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{marginHorizontal: 6, margin: 10}}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('StarCastDetails')}>
-            <Image
-              source={require('../assets/celeb.jpg')}
-              style={{
-                height: 120,
-                width: 100,
-                resizeMode: 'cover',
-                borderRadius: 3,
-              }}></Image>
-            <Text>Celebrity name</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{marginHorizontal: 6, margin: 10}}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('StarCastDetails')}>
-            <Image
-              source={require('../assets/cilian.jpg')}
-              style={{
-                height: 120,
-                width: 100,
-                resizeMode: 'cover',
-                borderRadius: 3,
-              }}></Image>
-            <Text>Celebrity name</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{marginHorizontal: 6, margin: 10}}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('StarCastDetails')}>
-            <Image
-              source={require('../assets/dicaprio.jpg')}
-              style={{
-                height: 120,
-                width: 100,
-                resizeMode: 'cover',
-                borderRadius: 3,
-              }}></Image>
-            <Text>Celebrity name</Text>
-          </TouchableOpacity>
-        </View>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        {cast.map(element => {
+          return (
+            <TouchableOpacity key={element.id}
+              onPress={() => navigation.navigate('StarCastDetails')}
+              >
+              <Image
+                source={element.img}
+                style={{height: 130, width: 100, marginHorizontal: 5, borderRadius:4}}
+              />
+              <View style={{flexWrap:'wrap', width:90}}>
+              <Text style={{width:'100%', marginHorizontal:5}}>{element.name}</Text>
+              </View>
+              
+            </TouchableOpacity>
+          );
+        })}
       </ScrollView>
     </>
   );
@@ -519,9 +482,7 @@ const PartiesAndEvents = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
-function MovieScreenDetail({navigation, route}) {
-  const {colors} = useTheme();
+const MovieDetailScreen = ({navigation, route}) => {
   const {videoId, poster} = route.params;
   const [playing, setPlaying] = useState(false);
 
@@ -532,88 +493,97 @@ function MovieScreenDetail({navigation, route}) {
     }
   }, []);
 
-  const togglePlaying = useCallback(() => {
-    setPlaying(prev => !prev);
-  }, []);
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <CustomHeader title="Movie Detail" navigation={navigation} />
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <YoutubePlayer
-              height='100%'
-              play={playing}
-              videoId={videoId}
-              onChangeState={onStateChange}
-            />
-          </View>
-          <View style={styles.rectangle}>
+    <View>
+      <CustomHeader
+        isHome={false}
+        title="Movie Details"
+        navigation={navigation}
+      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.videoContainer}>
+          <YoutubePlayer
+            webViewStyle={{opacity: 0.99}}
+            height={300}
+            play={playing}
+            videoId={videoId}
+            onChangeState={onStateChange}
+          />
+        </View>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            marginVertical: 10,
+            marginHorizontal: 10,
+          }}>
+          <View style={styles.posterContainer}>
             <Image
-              style={{width: '100%', height: '100%', borderRadius: 6}}
-              source={poster}></Image>
+              source={poster}
+              style={{width: '100%', height: '100%', borderRadius: 5}}></Image>
           </View>
-          <View style={styles.circle}>
-            <Image
-              source={require('../assets/heart.png')}
-              style={{tintColor: 'white', width: 16, height: 16}}
-            />
-          </View>
-          <View style={{marginLeft: 150, marginRight: 5, width: 200}}>
-            <Text style={{textAlign: 'center'}}>Movie| Adventure | Comedy</Text>
-            <View
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
-                marginTop: 2,
-              }}>
-              <View style={{margin: 4}}>
+          <View style={{alignItems: 'center'}}>
+            <Text style={{textAlign: 'center'}}>
+              Movie | Adventure | Comedy
+            </Text>
+            <View style={{flexDirection: 'row', marginVertical: 5}}>
+              <View style={{alignItems: 'center', marginHorizontal: 4}}>
                 <Image
                   source={require('../assets/star.png')}
-                  style={{tintColor: 'gold', width: 20, height: 20}}
-                />
-                <Text style={{fontSize: 12}}>Critic's Rating</Text>
-                <Text style={{fontSize: 12}}>4.2 / 5</Text>
+                  style={styles.ratingIcons}></Image>
+                <Text style={{fontSize: 12, fontWeight: '600'}}>
+                  Critic's ratings
+                </Text>
+                <Text style={{fontSize: 13}}>4.4/ 5.0</Text>
               </View>
-              <View style={{margin: 4}}>
+              <View style={{alignItems: 'center', marginHorizontal: 4}}>
                 <Image
                   source={require('../assets/star.png')}
-                  style={{tintColor: 'gold', width: 20, height: 20}}
-                />
-                <Text style={{fontSize: 12}}>Critic's Rating</Text>
-                <Text style={{fontSize: 12}}>4.4 / 5</Text>
+                  style={styles.ratingIcons}></Image>
+                <Text style={{fontSize: 12, fontWeight: '600'}}>
+                  User ratings
+                </Text>
+                <Text style={{fontSize: 13}}>4.4/ 5.0</Text>
               </View>
               <TouchableOpacity
-                style={{margin: 4}}
+                style={{alignItems: 'center', marginHorizontal: 4}}
                 onPress={() => navigation.navigate('WriteReview')}>
                 <Image
                   source={require('../assets/notes.png')}
-                  style={{tintColor: 'red', width: 20, height: 20}}
-                />
-                <Text style={{fontSize: 12, color: '#CC2939'}}>Rate This</Text>
+                  style={{tintColor: 'maroon', width: 22, height: 22}}></Image>
+                <Text style={{fontSize: 12, lineHeight: 25, fontWeight: '600'}}>
+                  Rate This
+                </Text>
               </TouchableOpacity>
             </View>
-            <View style={{marginVertical: 20}}>
-              <Text>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry
-              </Text>
-            </View>
+              <Text style={{marginTop:10}}>Add to Your Favorites</Text>
+              <View style={styles.circle}>
+                <Image source={require('../assets/heart.png')} 
+                style={{height:18, width:18, tintColor:'white'}}/>
+              </View>
           </View>
+        </View>
+        <View>
+          <Text style={{marginHorizontal: 15}}>
+            In the 1950s, truck driver Frank Sheeran gets involved with Russell
+            Bufalino and his Pennsylvania crime family. As Sheeran climbs the
+            ranks to become a top hit man, he also goes to work for Jimmy Hoffa
+            a powerful Teamster tied to organized crime.
+          </Text>
+          <Text
+              onPress={() => {
+                navigation.navigate('ProductionDetails');
+              }}
+              style={{marginVertical: 10, marginHorizontal:15}}>
+              Banner: SomeBanner
+            </Text>
         </View>
 
         <View>
-          <View style={{marginTop: 20, marginHorizontal: 12}}>
-            <Text
-              style={{marginBottom: 8}}
-              onPress={() => navigation.navigate('ProductionDetails')}>
-              Banner : SomeBanner
-            </Text>
-          </View>
-          <CastAndCrewList navigation={navigation} />
+          <CastList navigation={navigation} />
         </View>
+
         <RelatedTopics />
         <Trailer navigation={navigation} />
         <Posters navigation={navigation} />
@@ -622,47 +592,37 @@ function MovieScreenDetail({navigation, route}) {
         <View>
           <News />
         </View>
-        <View>
+        <View style={{marginBottom: 60}}>
           <PartiesAndEvents navigation={navigation} />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginBottom: 5,
-  },
-  header: {
+  videoContainer: {
     width: '100%',
-    height: 220,
-    position: 'relative',
-    top: 0,
-    left: 0,
-    backgroundColor: 'gray',
+    height: 240,
+    backgroundColor: 'black',
   },
-  rectangle: {
-    height: 180,
-    width: 120,
-    position: 'absolute',
-    top: 230,
-    left: 10,
-    elevation: 10,
+  posterContainer: {
+    height: 170,
+    width: 125,
+    marginRight: 5,
+  },
+  ratingIcons: {
+    width: 18,
+    height: 18,
+    tintColor: 'orange',
   },
   circle: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     height: 32,
     width: 32,
-    position: 'absolute',
-    top: 220,
-    right: 10,
     borderRadius: 50,
     backgroundColor: 'grey',
-    elevation: 10,
   },
   headerText: {
     textTransform: 'uppercase',
@@ -701,14 +661,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MovieScreenDetail;
-
-{
-  /* <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity style={{marginTop: 20}}
-        onPress={() => navigation.navigate('Posters')}
-        >
-          <Text>MovieDetails</Text>
-        </TouchableOpacity>
-      </View> */
-}
+export default MovieDetailScreen;

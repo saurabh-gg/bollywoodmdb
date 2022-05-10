@@ -8,7 +8,7 @@ const BoxOffice = ({navigation}) => {
     <View>
       <CustomHeader isHome={false} navigation={navigation} title="Box Office" />
       <View style={{marginHorizontal: 12}}>
-        <ScrollView style={{marginVertical: 10}}>
+        <ScrollView style={{marginVertical: 10}} showsVerticalScrollIndicator={false}>
           <Text style={{textTransform: 'uppercase', fontSize: 15}}>
             Bollywood Box Office collection report 2022-2021 report &amp;
             verdict India
@@ -209,7 +209,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#282828',
-    elevation: 10,
     borderRadius:5
   },
   cardheadline: {
