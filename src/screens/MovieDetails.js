@@ -12,9 +12,7 @@ import {
   TouchableOpacity,
   Button,
 } from 'react-native';
-import {useTheme} from '@react-navigation/native';
 import CustomHeader from '../header/CustomHeader';
-import Video from 'react-native-video';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 const cast = [
@@ -33,7 +31,7 @@ const CastList = ({navigation}) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginVertical: 10,
-          marginHorizontal:12
+          marginHorizontal: 12,
         }}>
         <Text>Cast and Crew</Text>
         <Text>see all</Text>
@@ -41,17 +39,23 @@ const CastList = ({navigation}) => {
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {cast.map(element => {
           return (
-            <TouchableOpacity key={element.id}
-              onPress={() => navigation.navigate('StarCastDetails')}
-              >
+            <TouchableOpacity
+              key={element.id}
+              onPress={() => navigation.navigate('StarCastDetails')}>
               <Image
                 source={element.img}
-                style={{height: 130, width: 100, marginHorizontal: 5, borderRadius:4}}
+                style={{
+                  height: 130,
+                  width: 100,
+                  marginHorizontal: 5,
+                  borderRadius: 4,
+                }}
               />
-              <View style={{flexWrap:'wrap', width:90}}>
-              <Text style={{width:'100%', marginHorizontal:5}}>{element.name}</Text>
+              <View style={{flexWrap: 'wrap', width: 90}}>
+                <Text style={{width: '100%', marginHorizontal: 5}}>
+                  {element.name}
+                </Text>
               </View>
-              
             </TouchableOpacity>
           );
         })}
@@ -128,162 +132,111 @@ const RelatedTopics = () => {
   );
 };
 
-const Trailer = ({navigation}) => {
-  const {colors} = useTheme();
-  return (
-    <View style={{marginTop: 15}}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginHorizontal: 8,
-        }}>
-        <Text style={{color: colors.text, fontWeight: '700'}}>
-          Latest Trailer
-        </Text>
-        <Text onPress={() => navigation.navigate('Trailers')}>See all</Text>
-      </View>
+const data = [
+  {
+    id: 1,
+    movieName: 'irishman',
+    img: require('../assets/irishman.jpg'),
+    videoId: 'WHXxVmeGQUc',
+  },
+  {
+    id: 2,
+    movieName: 'Antman',
+    img: require('../assets/antman.jpg'),
+    videoId: 'pWdKf3MneyI',
+  },
+  {
+    id: 3,
+    movieName: 'Peaky Blinders',
+    img: require('../assets/moviePoster.jpg'),
+    videoId: '2nsT9uQPIrk',
+  },
+  {
+    id: 4,
+    movieName: 'dumbledore',
+    img: require('../assets/dumble.jpg'),
+    videoId: 'Y9dr2zw-TXQ',
+  },
+  {
+    id: 5,
+    movieName: 'forest',
+    img: require('../assets/forest.jpg'),
+    videoId: '6hW8hUcXR-A',
+  },
+];
 
-      <ScrollView horizontal={true}>
-        <View style={{marginHorizontal: 5, margin: 10}}>
-          <ImageBackground
-            source={require('../assets/shahrukh.jpg')}
-            style={{
-              height: 100,
-              width: 180,
-              overflow: 'hidden',
-              borderRadius: 8,
-            }}>
-            <View
-              style={{
-                backgroundColor: 'black',
-                opacity: 0.6,
-                height: '100%',
-                width: '100%',
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text
-                onPress={() => Alert.alert('Video player Clicked')}
-                style={{height: 30}}>
-                <Image
-                  source={require('../assets/banner-Subtract.png')}
-                  style={{height: 25, width: 25}}
-                />
-              </Text>
-            </View>
-          </ImageBackground>
-          <Text style={{color: colors.text, fontWeight: '600'}}>
-            Some fuoia aagibao{' '}
-          </Text>
-        </View>
-        <View style={{marginHorizontal: 5, margin: 10}}>
-          <ImageBackground
-            source={require('../assets/shahrukh.jpg')}
-            style={{
-              height: 100,
-              width: 180,
-              overflow: 'hidden',
-              borderRadius: 8,
-            }}>
-            <View
-              style={{
-                backgroundColor: 'black',
-                opacity: 0.6,
-                height: '100%',
-                width: '100%',
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text
-                onPress={() => Alert.alert('Video player Clicked')}
-                style={{height: 30}}>
-                <Image
-                  source={require('../assets/banner-Subtract.png')}
-                  style={{height: 25, width: 25}}
-                />
-              </Text>
-            </View>
-          </ImageBackground>
-          <Text style={{color: colors.text, fontWeight: '600'}}>
-            Some fuoia aagibao{' '}
-          </Text>
-        </View>
-        <View style={{marginHorizontal: 5, margin: 10}}>
-          <ImageBackground
-            source={require('../assets/shahrukh.jpg')}
-            style={{
-              height: 100,
-              width: 180,
-              overflow: 'hidden',
-              borderRadius: 8,
-            }}>
-            <View
-              style={{
-                backgroundColor: 'black',
-                opacity: 0.6,
-                height: '100%',
-                width: '100%',
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text
-                onPress={() => Alert.alert('Video player Clicked')}
-                style={{height: 30}}>
-                <Image
-                  source={require('../assets/banner-Subtract.png')}
-                  style={{height: 25, width: 25}}
-                />
-              </Text>
-            </View>
-          </ImageBackground>
-          <Text style={{color: colors.text, fontWeight: '600'}}>
-            Some fuoia aagibao{' '}
-          </Text>
-        </View>
-        <View style={{marginHorizontal: 5, margin: 10}}>
-          <ImageBackground
-            source={require('../assets/shahrukh.jpg')}
-            style={{
-              height: 100,
-              width: 180,
-              overflow: 'hidden',
-              borderRadius: 8,
-            }}>
-            <View
-              style={{
-                backgroundColor: 'black',
-                opacity: 0.6,
-                height: '100%',
-                width: '100%',
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text
-                onPress={() => Alert.alert('Video player Clicked')}
-                style={{height: 30}}>
-                <Image
-                  source={require('../assets/banner-Subtract.png')}
-                  style={{height: 25, width: 25}}
-                />
-              </Text>
-            </View>
-          </ImageBackground>
-          <Text style={{color: colors.text, fontWeight: '600'}}>
-            Some fuoia aagibao{' '}
-          </Text>
+const Trailers = ({navigation}) => {
+  return (
+    <View>
+      <Text
+          style={{
+            textTransform: 'uppercase',
+            fontSize: 16,
+            fontWeight: '600',
+            marginVertical: 10,
+          }}>
+          Latest Movie Trailers 2022
+        </Text>
+      <ScrollView
+      horizontal={true}
+        style={{marginHorizontal: 10}}
+        showsHorizontalScrollIndicator={false}>
+    
+
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            flexWrap: 'wrap',
+          }}>
+          {data.map(element => {
+            return (
+              <TouchableOpacity
+                key={element.id}
+                style={{margin: 10}}
+                onPress={() =>
+                  navigation.navigate('VideoPlayer', {
+                    videoId: `${element.videoId}`,
+                  })
+                }>
+                <ImageBackground
+                  source={element.img}
+                  style={{
+                    height: 100,
+                    width: 160,
+                    overflow: 'hidden',
+                    borderRadius: 5,
+                  }}>
+                  <View
+                    style={{
+                      backgroundColor: 'black',
+                      opacity: 0.5,
+                      height: '100%',
+                      width: '100%',
+                      flex: 1,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Text style={{height: 30}}>
+                      <Image
+                        source={require('../assets/banner-Subtract.png')}
+                        style={{height: 25, width: 25}}
+                      />
+                    </Text>
+                  </View>
+                </ImageBackground>
+                <Text style={{textTransform: 'capitalize'}}>
+                  {element.movieName}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </ScrollView>
     </View>
   );
 };
-
 const Posters = ({navigation}) => {
   return (
     <View style={{marginTop: 15}}>
@@ -482,6 +435,7 @@ const PartiesAndEvents = ({navigation}) => {
     </SafeAreaView>
   );
 };
+
 const MovieDetailScreen = ({navigation, route}) => {
   const {videoId, poster} = route.params;
   const [playing, setPlaying] = useState(false);
@@ -557,11 +511,13 @@ const MovieDetailScreen = ({navigation, route}) => {
                 </Text>
               </TouchableOpacity>
             </View>
-              <Text style={{marginTop:10}}>Add to Your Favorites</Text>
-              <View style={styles.circle}>
-                <Image source={require('../assets/heart.png')} 
-                style={{height:18, width:18, tintColor:'white'}}/>
-              </View>
+            <Text style={{marginTop: 10}}>Add to Your Favorites</Text>
+            <View style={styles.circle}>
+              <Image
+                source={require('../assets/heart.png')}
+                style={{height: 18, width: 18, tintColor: 'white'}}
+              />
+            </View>
           </View>
         </View>
         <View>
@@ -572,12 +528,12 @@ const MovieDetailScreen = ({navigation, route}) => {
             a powerful Teamster tied to organized crime.
           </Text>
           <Text
-              onPress={() => {
-                navigation.navigate('ProductionDetails');
-              }}
-              style={{marginVertical: 10, marginHorizontal:15}}>
-              Banner: SomeBanner
-            </Text>
+            onPress={() => {
+              navigation.navigate('ProductionDetails');
+            }}
+            style={{marginVertical: 10, marginHorizontal: 15}}>
+            Banner: SomeBanner
+          </Text>
         </View>
 
         <View>
@@ -585,7 +541,7 @@ const MovieDetailScreen = ({navigation, route}) => {
         </View>
 
         <RelatedTopics />
-        <Trailer navigation={navigation} />
+        <Trailers navigation={navigation} />
         <Posters navigation={navigation} />
         <Stills navigation={navigation} />
         <PlotReviewSection />

@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import {
   Text,
   View,
@@ -12,11 +12,17 @@ import {
 } from 'react-native';
 import {NavigationContainer, DarkTheme, DefaultTheme} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-
+import SplashScreen from 'react-native-splash-screen'
 import MyDrawer from './src/drawer/DrawerComponent';
 
 export default function App() {
   const scheme = useColorScheme();
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, [])
+  
+
   return (
     <NavigationContainer theme={ scheme === 'dark' ? DarkTheme : DefaultTheme}>
       <MyDrawer></MyDrawer>
